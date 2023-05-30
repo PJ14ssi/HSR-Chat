@@ -1,0 +1,265 @@
+<style></style>
+/* CSS code... */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;600;700&family=Work+Sans&display=swap');
+* {
+font-family: 'Noto Sans JP', sans-serif;
+}
+
+body {
+padding: 0 !important;
+margin: 0 !important;
+}
+
+.main-container {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 100vh;
+box-sizing: border-box;
+font-size: 24px;
+font-weight: 700;
+background: #FFFFFF;
+padding: 50px;
+}
+
+.chatbox {
+height: 400px;
+width: 600px;
+border: 1px solid #000000;
+border-radius: 10px;
+padding: 20px;
+display: flex;
+flex-direction: column-reverse;
+justify-content: flex-start;
+align-items: center;
+margin: 0 auto;
+box-sizing: border-box;
+overflow-y: scroll;
+}
+
+.chat-input {
+display: flex;
+align-items: center;
+}
+
+.chat-input input[type="text"] {
+flex: 1;
+height: 40px;
+padding: 5px;
+border: 1px solid #000000;
+border-radius: 5px;
+margin-right: 10px;
+width: 200px;
+}
+
+.chat-input button {
+height: 40px;
+padding: 5px 10px;
+background: #D5BA8A;
+border: none;
+border-radius: 5px;
+color: #FFFFFF;
+font-weight: bold;
+cursor: pointer;
+}
+
+.message-container {
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+padding: 20px;
+max-width: 1000px;
+margin: 0 auto;
+overflow: visible;
+margin-left: auto;
+margin-right: auto;
+justify-content: center;
+}
+
+.message-row {
+display: flex;
+flex-direction: row;
+align-items: flex-start;
+margin-bottom: 10px;
+max-width: 100%;
+animation: fade-in var(--anim-speed) var(--anim-ease);
+}
+
+.message-row[data-role="broadcaster"] {
+--margin: calc(var(--profile-size) + var(--extra-padding));
+--align: flex-start;
+--background: #D5BA8A;
+--corners: var(--corner) 0px var(--corner) 0px;
+}
+
+.message-row:before {
+content: "";
+position: relative;
+flex: 0 0 var(--profile-size);
+height: var(--profile-size);
+width: var(--profile-size);
+border-radius: 50%;
+margin-top: 5px;
+margin-bottom: 5px;
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+margin-right: var(--extra-padding);
+}
+
+.message-row[data-role="broadcaster"]:before {
+margin-right: var(--extra-padding);
+}
+
+.message-content {
+display: flex;
+background: var(--background);
+color: #000000;
+padding: 10px;
+border-radius: 20px;
+font-size: 16px;
+line-height: 1.5;
+word-wrap: break-word;
+box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+white-space: pre-wrap;
+flex-direction: column;
+align-items: flex-start;
+text-align: left;
+width: 100%;
+max-width: auto, none; /* Add this line */
+}
+
+@keyframes fade-in {
+0% {
+opacity: 0;
+}
+100% {
+opacity: 1;
+}
+}
+
+.message-row:not([data-role="broadcaster"]) {
+align-self: flex-end;
+}
+
+.message-row[data-role="broadcaster"] {
+align-self: flex-start;
+}
+
+.message-row[data-username="User"] {
+margin-right: 10px;
+align-self: flex-end;
+}
+
+.message-row[data-username="Bot"] {
+margin-left: 10px;
+align-self: flex-start;
+}
+
+.message-row[data-username="User"] .message-content {
+--background: #D5BA8A;
+align-self: flex-start;
+}
+
+.message-row[data-username="Bot"] .message-content {
+--background: #EBEBEB;
+align-self: flex-end;
+}
+
+.username {
+font-weight: bold;
+color: blue;
+margin-bottom: 5px;
+}
+
+.text {
+margin-top: 5px;
+}
+
+.badge {
+display: none;
+}
+
+.user-box {
+display: inline-block;
+position: relative;
+width: 100%;
+text-align: var(--align);
+}
+
+.username {
+color: black;
+}
+
+.user-message {
+word-wrap: break-word;
+text-align: var(--align);
+}
+
+.user-box,
+.user-message {
+animation: fade var(--anim-speed) var(--anim-ease);
+}
+
+.message {
+background-color: var(--bgcol);
+border-radius: var(--corners);
+padding: 6px 18px;
+display: inline-block;
+}
+
+.message-row[data-username="User"] {
+align-self: flex-end;
+}
+
+.message-row[data-username="Bot"] {
+align-self: flex-start;
+}
+
+[data-emotesonly="true"] .message {
+background-color: transparent !important;
+padding: 6px 18px;
+display: inline-block;
+}
+
+[data-emotesonly="true"] .emote {
+height: 90px;
+}
+
+.emote {
+height: 24px;
+vertical-align: middle;
+background-repeat: no-repeat;
+}
+
+.action {
+font-style: italic;
+}
+
+@keyframes bounce-in {
+from {
+transform: translateY(50px);
+}
+}
+
+@keyframes fade {
+from {
+opacity: 0;
+}
+30% {
+opacity: 0;
+}
+}
+
+.emote {
+  display: inline-block;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 24px;
+  height: 24px;
+  vertical-align: middle;
+}
+
+</style>
